@@ -1,0 +1,30 @@
+Author: Muthu <mtmuthu.ece@gmail.com>
+mobile: 9786324873
+
+Install NFS server on ubuntu. on server machine
+
+sudo apt update
+sudo apt install nfs-kernel-server
+
+sudo mkdir <ur directory>/var/nfs/test
+sudo chown nobody:nogroup /var/nfs/test
+
+
+sudo vi /etc/exports
+
+Add below contains
+/var/nfs/test clientIP(rw,sync,no_subtree_check)
+
+save the file
+
+ON the client machine
+sudo apt update
+sudo apt install nfs-common
+
+
+create a mount directory
+
+sudo mkdir /mnt/directoryname
+
+sudo mount nfsserver:/var/nfs/test /mnt/directoryname
+
